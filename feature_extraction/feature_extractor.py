@@ -12,6 +12,6 @@ def extract_features(filename):
     plt.figure(figsize=(4, 3))
     librosa.display.specshow(librosa.power_to_db(feature, ref=np.max),
                              y_axis='mel', x_axis='time')
-    plt.title('feature')
+    plt.title('melspectrogram')
     plt.tight_layout()
     plt.show()
