@@ -3,10 +3,32 @@ from collections import defaultdict
 from feature_extraction.feature_extractor import extract_features
 import csv
 import os
+import tensorflow as tf
+import numpy as np
 
 from neural_network import main
 
+
+def eval_input_fn(features, labels=None, batch_size=1):
+    """An input function for evaluation or prediction"""
+    if labels is None:
+        # No labels, use only features.
+        inputs = features
+    else:
+        inputs = (features, labels)
+
+    # Convert inputs to a tf.dataset object.
+    dataset = tf.data.Dataset.from_tensor_slices(inputs)
+
+    # Batch the examples
+    dataset = dataset.batch(batch_size)
+
+    # Return the read end of the pipeline.
+    return dataset.make_one_shot_iterator().get_next()
+
+
 if __name__ == '__main__':
+    pass
     # instruments = defaultdict(list)
     # path = os.path.dirname(os.path.realpath(__file__))
     # sample_path = os.path.join(path, 'samples')
@@ -39,5 +61,3 @@ if __name__ == '__main__':
     #         except EOFError:
     #             continue
     #     index += 1
-
-    main()
