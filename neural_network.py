@@ -57,6 +57,7 @@ def main(argv):
     ]
 
     features = list(map(lambda filename: extract_features(filename), filenames))
+    # [[1,2,3], [4,5,6], [7,8,9]] -> [[1,4,7],[2,5,8],[3,6,9]]
     features = list(zip(*features))
 
     predict_x = {str(feature_col): [*feature] for feature_col, feature in zip(range(20), features)}

@@ -28,7 +28,9 @@ def eval_input_fn(features, labels=None, batch_size=1):
 
 
 if __name__ == '__main__':
-    pass
+    file_path = 'guitar_G3_very-long_piano_harmonics.mp3'
+    extract_features(file_path)
+
     # instruments = defaultdict(list)
     # path = os.path.dirname(os.path.realpath(__file__))
     # sample_path = os.path.join(path, 'samples')
