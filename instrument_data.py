@@ -2,11 +2,11 @@ import pandas as pd
 import tensorflow as tf
 
 
-CSV_COLUMN_NAMES = [str(i) for i in range(21)]
+CSV_COLUMN_NAMES = [str(i) for i in range(29)]
 INSTRUMENTS = ['Flute', 'Saxophone', 'Guitar']
 
 
-def load_data(y_name="20"):
+def load_data(y_name="28"):
     train = pd.read_csv('train.csv', names=CSV_COLUMN_NAMES, header=None)
     train_x, train_y = train, train.pop(y_name) - 1
 
@@ -58,7 +58,8 @@ CSV_TYPES = [
     [0.0], [0.0], [0.0], [0.0], [0.0],
     [0.0], [0.0], [0.0], [0.0], [0.0],
     [0.0], [0.0], [0.0], [0.0], [0.0],
-    [0.0], [0.0], [0.0], [0.0], [0.0], [0]
+    [0.0], [0.0], [0.0], [0.0], [0.0],
+    [0.0], [0.0], [0],
 ]
 
 
@@ -70,7 +71,7 @@ def _parse_line(line):
     features = dict(zip(CSV_COLUMN_NAMES, fields))
 
     # Separate the label from the features
-    label = features.pop('20')
+    label = features.pop('28')
 
     return features, label
 

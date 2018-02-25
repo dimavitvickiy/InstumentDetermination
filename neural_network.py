@@ -5,7 +5,6 @@ from __future__ import print_function
 
 import argparse
 import tensorflow as tf
-import numpy as np
 
 import instrument_data
 from feature_extraction.feature_extractor import extract_features
@@ -26,12 +25,11 @@ def main(argv):
     my_feature_columns = []
     for key in train_x.keys():
         my_feature_columns.append(tf.feature_column.numeric_column(key=key))
-
     # Build 2 hidden layer DNN with 10, 10 units respectively.
     classifier = tf.estimator.DNNClassifier(
         feature_columns=my_feature_columns,
-        # Two hidden layers of 10 nodes each.
         hidden_units=[10],
+        model_dir='temp/musical_instrument',
         # The model must choose between 3 classes.
         n_classes=3)
 
@@ -40,7 +38,6 @@ def main(argv):
         input_fn=lambda:instrument_data.train_input_fn(train_x, train_y,
                                                  args.batch_size),
         steps=args.train_steps)
-
     # Evaluate the model.
     eval_result = classifier.evaluate(
         input_fn=lambda:instrument_data.eval_input_fn(test_x, test_y,
@@ -51,7 +48,7 @@ def main(argv):
     # Generate predictions from the model
     expected = ['Flute', 'Guitar', 'Saxophone']
     filenames = [
-        'flute_D5_15_forte_normal.mp3',
+        'flute_A4_1_forte_normal.mp3',
         'guitar_G3_very-long_piano_harmonics.mp3',
         'saxophone_A3_05_fortissimo_normal.mp3',
     ]
@@ -60,7 +57,7 @@ def main(argv):
     # [[1,2,3], [4,5,6], [7,8,9]] -> [[1,4,7],[2,5,8],[3,6,9]]
     features = list(zip(*features))
 
-    predict_x = {str(feature_col): [*feature] for feature_col, feature in zip(range(20), features)}
+    predict_x = {str(feature_col): [*feature] for feature_col, feature in zip(range(28), features)}
     predictions = classifier.predict(
         input_fn=lambda:instrument_data.eval_input_fn(predict_x,
                                                       labels=None,
@@ -76,5 +73,5 @@ def main(argv):
 
 
 if __name__ == '__main__':
-    tf.logging.set_verbosity(tf.logging.INFO)
+    tf.logging.set_verbosity(tf.logging.ERROR)
     tf.app.run(main)
