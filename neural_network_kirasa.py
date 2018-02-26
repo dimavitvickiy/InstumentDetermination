@@ -26,20 +26,11 @@ class PlotLearning(Callback):
         self.x.append(self.i)
         self.losses.append(logs.get('loss'))
         self.val_losses.append(logs.get('val_loss'))
-        self.acc.append(logs.get('acc'))
-        self.val_acc.append(logs.get('val_acc'))
         self.i += 1
-        f, (ax1, ax2) = plt.subplots(1, 2, sharex=True)
 
-        ax1.set_yscale('log')
-        ax1.plot(self.x, self.losses, label="loss")
-        ax1.plot(self.x, self.val_losses, label="val_loss")
-        ax1.legend()
-
-        ax2.plot(self.x, self.acc, label="accuracy")
-        ax2.plot(self.x, self.val_acc, label="validation accuracy")
-        ax2.legend()
-
+        plt.plot(self.x, self.losses, label="loss")
+        plt.plot(self.x, self.val_losses, label="val_loss")
+        plt.legend()
         plt.show()
 
 
@@ -70,7 +61,7 @@ model = Sequential([
 model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer='rmsprop')
 # Fit the model
 model.fit(X, Y,
-          epochs=500,
+          epochs=100,
           batch_size=10,
           verbose=2,
           validation_data=(X_test, Y_test),
