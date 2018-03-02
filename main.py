@@ -18,7 +18,8 @@ if __name__ == '__main__':
         break
     record_number = sum([len(records) for records in instruments.values()])
     counter = 0
-    index = 1
+    index = 0
+    instrument_dict = {}
     for instrument, records in instruments.items():
         instrument_path = os.path.join(sample_path, f'{instrument}')
         for record in records:
@@ -37,4 +38,7 @@ if __name__ == '__main__':
                 print(f'Read {counter}/{record_number}')
             except EOFError:
                 continue
+        instrument_dict[index] = instrument
         index += 1
+
+    print(instrument_dict)

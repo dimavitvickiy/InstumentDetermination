@@ -28,10 +28,10 @@ def main(argv):
     # Build 2 hidden layer DNN with 10, 10 units respectively.
     classifier = tf.estimator.DNNClassifier(
         feature_columns=my_feature_columns,
-        hidden_units=[10],
-        model_dir='temp/musical_instrument',
-        # The model must choose between 3 classes.
-        n_classes=3)
+        hidden_units=[10, 10],
+        model_dir='temp/new_temp_dir_to_resource',
+        # The model must choose between 5 classes.
+        n_classes=5)
 
     # Train the Model.
     classifier.train(
@@ -46,11 +46,14 @@ def main(argv):
     print('\nTest set accuracy: {accuracy:0.3f}\n'.format(**eval_result))
 
     # Generate predictions from the model
-    expected = ['Flute', 'Guitar', 'Saxophone']
+    # {0: 'contrabassoon', 1: 'flute', 2: 'cello', 3: 'saxophone', 4: 'guitar'}
+    expected = ['cello', 'contrabassoon', 'flute', 'guitar', 'saxophone']
     filenames = [
-        'flute_A4_1_forte_normal.mp3',
-        'guitar_G3_very-long_piano_harmonics.mp3',
-        'saxophone_A3_05_fortissimo_normal.mp3',
+        'cello_C3_1_forte_arco-normal.mp3',
+        'contrabassoon_A3_1_forte_normal.mp3',
+        'flute_Cs4_1_mezzo-piano_normal.mp3',
+        'guitar_As4_very-long_forte_normal.mp3',
+        'saxophone_As4_1_forte_normal.mp3',
     ]
 
     features = list(map(lambda filename: extract_features(filename), filenames))

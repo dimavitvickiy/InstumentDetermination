@@ -7,6 +7,9 @@ from matplotlib import pyplot as plt
 
 # load pima indians dataset
 from keras.utils import normalize
+from sklearn.decomposition import PCA
+
+from feature_extraction.feature_extractor import extract_features
 
 
 class PlotLearning(Callback):
@@ -36,38 +39,53 @@ class PlotLearning(Callback):
 
 plot_loses = PlotLearning()
 
-
 dataset = numpy.loadtxt("train.csv", delimiter=",")
 # split into input (X) and output (Y) variables
-X = dataset[:, 0:28]
+X = dataset[:, 0:21]
 X = normalize(X, axis=0)
-Y = dataset[:, 28] - 1
-Y = keras.utils.to_categorical(Y, num_classes=3)
+Y = dataset[:, 21]
+
+pca = PCA(n_components=2)
+Z = pca.fit_transform(X)
+
+colors = ['red', 'blue', 'green', 'yellow', 'cyan']
+for color, i in zip(colors, range(len(colors))):
+    plt.scatter(Z[Y == i, 0], Z[Y == i, 1], alpha=.8, color=color,
+                label="label")
+
+plt.show()
+
+Y = keras.utils.to_categorical(Y, num_classes=5)
 
 test_dataset = numpy.loadtxt("test.csv", delimiter=',')
-X_test = test_dataset[:, 0:28]
+X_test = test_dataset[:, 0:21]
 X_test = normalize(X_test, axis=0)
-Y_test = test_dataset[:, 28] - 1
-Y_test = keras.utils.to_categorical(Y_test, num_classes=3)
+Y_test = test_dataset[:, 21]
+Y_test = keras.utils.to_categorical(Y_test, num_classes=5)
 
 # create model
 model = Sequential([
-    Dense(10, input_shape=(28,)),
+    Dense(10, input_shape=(21,)),
     Activation('relu'),
-    Dense(3),
+    Dense(5),
     Activation('softmax'),
 ])
 # Compile mean_squared_error
-model.compile(loss='categorical_crossentropy', metrics=['accuracy'], optimizer='rmsprop')
+model.compile(loss='mean_squared_logarithmic_error', metrics=['accuracy'], optimizer='adamax')
 # Fit the model
 model.fit(X, Y,
-          epochs=100,
+          epochs=400,
           batch_size=10,
           verbose=2,
           validation_data=(X_test, Y_test),
-          callbacks=[plot_loses],
+          # callbacks=[plot_loses],
           )
 # calculate predictions
-# predictions = model.predict(X)
+# {0: 'contrabassoon', 1: 'flute', 2: 'cello', 3: 'saxophone', 4: 'guitar'}
+filename = 'cello_C3_1_forte_arco-normal.mp3'
+features = numpy.array(extract_features(filename))
+features = normalize(features, axis=0)
+# [[1,2,3], [4,5,6], [7,8,9]] -> [[1,4,7],[2,5,8],[3,6,9]]
+prediction = model.predict(features)
 
-# print(predictions)
+print(prediction)
