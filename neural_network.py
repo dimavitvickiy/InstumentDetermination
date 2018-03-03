@@ -29,7 +29,7 @@ def main(argv):
     classifier = tf.estimator.DNNClassifier(
         feature_columns=my_feature_columns,
         hidden_units=[10, 10],
-        model_dir='temp/new_temp_dir_to_resource',
+        model_dir='temp/blablabla',
         # The model must choose between 5 classes.
         n_classes=5)
 
