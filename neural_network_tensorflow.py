@@ -3,13 +3,14 @@ from __future__ import division
 from __future__ import print_function
 
 import argparse
-import tensorflow as tf
+
 import numpy as np
-import matplotlib.pyplot as plt
+import tensorflow as tf
+from matplotlib import pyplot as plt
+from sklearn.decomposition import PCA
 
 import instrument_data
 from confusion_matrix_plot import plot_confusion_matrix
-from feature_extraction.feature_extractor import extract_features
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--batch_size', default=50, type=int, help='batch size')
@@ -65,7 +66,15 @@ def main(argv):
 
     # Fetch the data
     (train_x, train_y), (test_x, test_y) = instrument_data.load_data()
+    pca = PCA(n_components=2)
+    Z = pca.fit_transform(train_x)
 
+    colors = ['red', 'blue', 'green', 'yellow', 'cyan']
+    for color, i in zip(colors, range(len(colors))):
+        plt.scatter(Z[train_y == i, 0], Z[train_y == i, 1], alpha=.8, color=color,
+                    label=instrument_data.INSTRUMENTS[i])
+    plt.legend()
+    plt.show()
     # Feature columns describe how to use the input.
     my_feature_columns = []
     for key in train_x.keys():
@@ -74,9 +83,9 @@ def main(argv):
     # Build 2 hidden layer DNN with 10, 10 units respectively.
     classifier = tf.estimator.Estimator(
         model_fn=my_model,
+        model_dir='temp/instrument_prediction',
         params={
             'feature_columns': my_feature_columns,
-            'model_dir': 'temp/fafafafa',
             # Two hidden layers of 10 nodes each.
             'hidden_units': [10, 10],
             # The model must choose between 3 classes.
@@ -89,10 +98,10 @@ def main(argv):
         steps=args.train_steps)
 
     # Evaluate the model.
-    eval_result = classifier.evaluate(
-        input_fn=lambda:instrument_data.eval_input_fn(test_x, test_y, args.batch_size))
+    accuracy = classifier.evaluate(
+        input_fn=lambda:instrument_data.eval_input_fn(test_x, test_y, args.batch_size))['accuracy']
 
-    print('\nTest set accuracy: {accuracy:0.3f}\n'.format(**eval_result))
+    print('\nTest set accuracy: {0:0.3f}\n'.format(accuracy))
 
     # # Generate predictions from the model
     # expected = ['contrabassoon', 'flute', 'cello', 'saxophone', 'guitar']
