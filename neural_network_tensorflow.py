@@ -7,7 +7,6 @@ import argparse
 import numpy as np
 import tensorflow as tf
 from matplotlib import pyplot as plt
-from sklearn.decomposition import PCA
 
 import instrument_data
 from confusion_matrix_plot import plot_confusion_matrix
