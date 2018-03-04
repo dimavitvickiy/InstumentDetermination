@@ -13,8 +13,8 @@ import instrument_data
 from confusion_matrix_plot import plot_confusion_matrix
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--batch_size', default=50, type=int, help='batch size')
-parser.add_argument('--train_steps', default=1000, type=int,
+parser.add_argument('--batch_size', default=500, type=int, help='batch size')
+parser.add_argument('--train_steps', default=50000, type=int,
                     help='number of training steps')
 
 
@@ -66,15 +66,7 @@ def main(argv):
 
     # Fetch the data
     (train_x, train_y), (test_x, test_y) = instrument_data.load_data()
-    pca = PCA(n_components=2)
-    Z = pca.fit_transform(train_x)
 
-    colors = ['red', 'blue', 'green', 'yellow', 'cyan']
-    for color, i in zip(colors, range(len(colors))):
-        plt.scatter(Z[train_y == i, 0], Z[train_y == i, 1], alpha=.8, color=color,
-                    label=instrument_data.INSTRUMENTS[i])
-    plt.legend()
-    plt.show()
     # Feature columns describe how to use the input.
     my_feature_columns = []
     for key in train_x.keys():
@@ -83,13 +75,13 @@ def main(argv):
     # Build 2 hidden layer DNN with 10, 10 units respectively.
     classifier = tf.estimator.Estimator(
         model_fn=my_model,
-        model_dir='temp/instrument_prediction',
+        model_dir='temp/instrument_8c_25k_250',
         params={
             'feature_columns': my_feature_columns,
             # Two hidden layers of 10 nodes each.
-            'hidden_units': [10, 10],
+            'hidden_units': [16, 16],
             # The model must choose between 3 classes.
-            'n_classes': 5,
+            'n_classes': len(instrument_data.INSTRUMENTS),
         })
 
     # Train the Model.
@@ -102,26 +94,6 @@ def main(argv):
         input_fn=lambda:instrument_data.eval_input_fn(test_x, test_y, args.batch_size))['accuracy']
 
     print('\nTest set accuracy: {0:0.3f}\n'.format(accuracy))
-
-    # # Generate predictions from the model
-    # expected = ['contrabassoon', 'flute', 'cello', 'saxophone', 'guitar']
-    # filenames = [
-    #     'contrabassoon_A3_1_forte_normal.mp3',
-    #     'flute_Cs4_1_mezzo-piano_normal.mp3',
-    #     'cello_C3_1_forte_arco-normal.mp3',
-    #     'saxophone_As4_1_forte_normal.mp3',
-    #     'guitar_As4_very-long_forte_normal.mp3',
-    # ]
-    #
-    # features = list(map(lambda filename: extract_features(filename), filenames))
-    # # [[1,2,3], [4,5,6], [7,8,9]] -> [[1,4,7],[2,5,8],[3,6,9]]
-    # features = list(zip(*features))
-    #
-    # predict_x = {str(feature_col): [*feature] for feature_col, feature in zip(range(21), features)}
-    # predictions = classifier.predict(
-    #     input_fn=lambda: instrument_data.eval_input_fn(predict_x,
-    #                                                    labels=None,
-    #                                                    batch_size=args.batch_size))
 
     predictions = classifier.predict(
         input_fn=lambda: instrument_data.eval_input_fn(test_x, test_y, args.batch_size)
@@ -148,7 +120,7 @@ def main(argv):
         plt.figure()
         plot_confusion_matrix(
             cm,
-            classes=['contrabassoon', 'flute', 'cello', 'saxophone', 'guitar'],
+            classes=instrument_data.INSTRUMENTS,
             normalize=True,
             title='Normalized confusion matrix',
         )
