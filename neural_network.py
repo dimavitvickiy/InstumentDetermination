@@ -7,7 +7,6 @@ import argparse
 import tensorflow as tf
 
 import instrument_data
-from feature_extraction.feature_extractor import extract_features
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--batch_size', default=500, type=int, help='batch size')
@@ -73,7 +72,7 @@ def main(argv):
     #     probability = pred_dict['probabilities'][class_id]
     #
     #     print(template.format(instrument_data.INSTRUMENTS[class_id], 100 * probability, expec))
-    #
+
 
 if __name__ == '__main__':
     tf.logging.set_verbosity(tf.logging.ERROR)
