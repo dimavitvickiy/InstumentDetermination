@@ -1,6 +1,7 @@
 import argparse
 import pickle
 
+import matplotlib.pyplot as plt
 import instrument_data
 from feature_extraction.feature_extractor import extract_features
 
@@ -17,7 +18,7 @@ if __name__ == '__main__':
     with open('model.pickle', 'rb') as f:
         classifier = pickle.load(f)
 
-    features = extract_features(args.filename)
+    features = extract_features(args.filename, plot=True)
 
     predict_x = {str(feature_col): [feature] for feature_col, feature in
                  zip(range(instrument_data.FEATURES_NUMBER), features)}
@@ -35,3 +36,4 @@ if __name__ == '__main__':
 
         print(template.format(instrument_data.INSTRUMENTS[class_id],
                               100 * probability))
+    plt.show()

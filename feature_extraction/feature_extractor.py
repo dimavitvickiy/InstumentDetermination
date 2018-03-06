@@ -1,25 +1,25 @@
 from __future__ import print_function
 
-from pprint import pprint
-
 import librosa
 import librosa.display
-# import matplotlib.pyplot as plt
+import matplotlib.pyplot as plt
 import numpy as np
 
 
-def extract_features(filename):
+def extract_features(filename, plot=False):
     y, sr = librosa.load(filename, sr=44100, duration=1)
 
     feature_mfcc = librosa.feature.mfcc(y, sr)
     feature_spectral_centroid = librosa.feature.spectral_centroid(y, sr)
     # feature_toneltz = librosa.feature.tonnetz(y, sr)
+    if plot:
+        chroma_cqt = librosa.feature.chroma_cqt(y, sr)
 
-    # plt.figure(figsize=(8, 6))
-    # plt.plot(feature_mfcc)
-    # plt.title(filename.split('_')[0])
-    # plt.tight_layout()
-    # plt.show()
+        plt.figure(figsize=(10, 4))
+        librosa.display.specshow(chroma_cqt, y_axis='chroma', x_axis='time')
+        plt.colorbar()
+        plt.title('Chroma')
+        plt.tight_layout()
 
     features = [
         feature_mfcc,
