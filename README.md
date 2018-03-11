@@ -36,5 +36,7 @@ python == 3.6+
 
 ## Results: 
 
+![confusion matrix](https://github.com/dimavitvickiy/InstumentDetermination/blob/master/feature_extraction.png?raw=true)
+![confusion matrix](https://github.com/dimavitvickiy/InstumentDetermination/blob/master/result.png?raw=true)
 ![confusion matrix](https://github.com/dimavitvickiy/InstumentDetermination/blob/master/instruments.png?raw=true)
 ![confusion matrix](https://github.com/dimavitvickiy/InstumentDetermination/blob/master/prediction.png?raw=true)
