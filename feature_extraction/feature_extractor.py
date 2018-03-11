@@ -14,11 +14,20 @@ def extract_features(filename, plot=False):
     # feature_toneltz = librosa.feature.tonnetz(y, sr)
     if plot:
         chroma_cqt = librosa.feature.chroma_cqt(y, sr)
-
-        plt.figure(figsize=(10, 4))
+        plt.figure(figsize=(10, 6))
+        plt.subplot(2, 1, 2)
         librosa.display.specshow(chroma_cqt, y_axis='chroma', x_axis='time')
+        plt.title('Chroma CQT')
+        plt.subplot(2, 2, 1)
+        librosa.display.specshow(feature_mfcc)
+        plt.title('MFCC')
         plt.colorbar()
-        plt.title('Chroma')
+        plt.subplot(2, 2, 2)
+        plt.semilogy(feature_spectral_centroid.T, label='Spectral centroid')
+        plt.ylabel('Hz')
+        plt.xticks([])
+        plt.xlim([0, feature_spectral_centroid.shape[-1]])
+        plt.title('Spectral centroid')
         plt.tight_layout()
 
     features = [
