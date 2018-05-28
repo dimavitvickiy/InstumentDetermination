@@ -15,6 +15,16 @@ INSTRUMENTS = [
     'cello',
     'french horn',
 ]
+INSTRUMENTS_UKR = [
+    'Фагот',
+    'Скрипка',
+    'Контрабас',
+    'Тромбон',
+    'Туба',
+    'Флейта',
+    'Віолончель',
+    'Валторна',
+]
 
 
 def load_data(y_name=str(FEATURES_NUMBER)):

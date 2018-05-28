@@ -1,10 +1,37 @@
 <html>
     <head>
         <title>Instrument determinate</title>
+        <link href="https://getbootstrap.com/docs/4.1/dist/css/bootstrap.min.css" rel="stylesheet">
+        <link href="https://getbootstrap.com/docs/4.1/examples/starter-template/starter-template.css" rel="stylesheet">
     </head>
     <body>
-        <div>
-            bla bla
+    <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+      <a class="navbar-brand" href="#">Instrument determinator</a>
+    </nav>
+
+    <main role="main" class="container">
+        <div class="row">
+            <div class="col-sm-4">
+                <form action="/" method="post" enctype="multipart/form-data">
+                    {{ form.audio_file.label }} <br />
+                    {{ form.audio_file() }} <br />
+                    <button class="btn-primary" style="margin: 1em" type="submit">Анализировать</button>
+                </form>
+            </div>
+            <div class="col-sm-4">
+                {% if instrument %}
+                    <span>Результат аналізу:</span><br />
+                    <p style="font-weight: bold; padding-top: 0.7em">
+                        {{ instrument["name"] }}, {{ "%4.2f" % instrument["probability"] }} %
+                    </p>
+                {% endif %}
+            </div>
         </div>
+
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://getbootstrap.com/docs/4.1/assets/js/vendor/popper.min.js"></script>
+    <script src="https://getbootstrap.com/docs/4.1/dist/js/bootstrap.min.js"></script>
     </body>
 </html>
