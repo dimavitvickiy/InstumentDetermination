@@ -12,7 +12,7 @@ UPLOAD_PATH = 'files'
 
 
 class AudioForm(Form):
-    audio_file = fields.FileField('Аудиофайл')
+    audio_file = fields.FileField('Audiofile')
 
 
 @app.route("/", methods=['GET', 'POST'])
@@ -45,7 +45,7 @@ def classification():
                     "main.html.jinja2",
                     form=form,
                     instrument={
-                        'name': instrument_data.INSTRUMENTS_UKR[class_id],
+                        'name': instrument_data.INSTRUMENTS[class_id],
                         'probability': 100 * probability,
                     }
                 )

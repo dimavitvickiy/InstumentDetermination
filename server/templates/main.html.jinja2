@@ -15,12 +15,12 @@
                 <form action="/" method="post" enctype="multipart/form-data">
                     {{ form.audio_file.label }} <br />
                     {{ form.audio_file() }} <br />
-                    <button class="btn-primary" style="margin: 1em" type="submit">Анализировать</button>
+                    <button class="btn-primary" style="margin: 1em" type="submit">Analyze</button>
                 </form>
             </div>
             <div class="col-sm-4">
                 {% if instrument %}
-                    <span>Результат аналізу:</span><br />
+                    <span>Analysis results:</span><br />
                     <p style="font-weight: bold; padding-top: 0.7em">
                         {{ instrument["name"] }}, {{ "%4.2f" % instrument["probability"] }} %
                     </p>
