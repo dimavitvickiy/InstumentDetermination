@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="158b079c-ab68-4907-a8ef-7c3d39b7c441" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/InstumentDetermination.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/InstumentDetermination.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="158b079c-ab68-4907-a8ef-7c3d39b7c441" name="Default" comment="update matplotlib to 3.1.1 version">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -42,11 +40,29 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/server.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="400">
               <caret line="38" selection-start-line="38" selection-end-line="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/requirements.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-81">
+              <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/requirements2.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="160">
+              <caret line="10" column="19" selection-end-line="48" />
             </state>
           </provider>
         </entry>
@@ -81,6 +97,7 @@
         <option value="$PROJECT_DIR$/server/server.py" />
         <option value="$PROJECT_DIR$/../venv/lib/python3.6/site-packages/librosa/display.py" />
         <option value="$PROJECT_DIR$/feature_extraction/feature_extractor.py" />
+        <option value="$PROJECT_DIR$/requirements.txt" />
       </list>
     </option>
   </component>
@@ -205,17 +222,26 @@
       <option name="presentableId" value="Default" />
       <updated>1524425797867</updated>
       <workItem from="1571490004260" duration="279000" />
-      <workItem from="1571490370483" duration="304000" />
+      <workItem from="1571490370483" duration="1134000" />
     </task>
+    <task id="LOCAL-00001" summary="update matplotlib to 3.1.1 version">
+      <created>1571490949500</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1571490949500</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="583000" />
+    <option name="totallyTimeSpent" value="1413000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18454936" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18454936" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -227,7 +253,7 @@
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50213444" side_tool="true" weight="0.3277487" />
       <window_info anchor="bottom" id="Python Console" order="8" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="9" sideWeight="0.49786553" visible="true" weight="0.30361447" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49786553" visible="true" weight="0.30361447" />
       <window_info anchor="bottom" id="Docker" order="10" weight="0.32891566" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -240,6 +266,10 @@
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="update matplotlib to 3.1.1 version" />
+    <option name="LAST_COMMIT_MESSAGE" value="update matplotlib to 3.1.1 version" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -334,6 +364,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="400">
           <caret line="38" selection-start-line="38" selection-end-line="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements2.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="19" selection-end-line="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/requirements.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-81">
+          <caret line="11" column="14" lean-forward="true" selection-start-line="11" selection-start-column="14" selection-end-line="11" selection-end-column="14" />
         </state>
       </provider>
     </entry>
