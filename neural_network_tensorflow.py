@@ -30,7 +30,7 @@ def main(argv):
 
     classifier = tf.estimator.Estimator(
         model_fn=estimator_model,
-        model_dir='temp/instrument_8c_50k_500_train',
+        model_dir='temp/instruments_temp',
         params={
             'feature_columns': my_feature_columns,
             'hidden_units': [16, 16],
@@ -57,7 +57,7 @@ def main(argv):
         class_id = pred_dict['class_ids'][0]
         prediction_list.append(class_id)
 
-    confusion_matrix = tf.contrib.metrics.confusion_matrix(
+    confusion_matrix = tf.compat.v2.math.confusion_matrix(
         test_y,
         prediction_list,
     )
@@ -71,7 +71,6 @@ def main(argv):
             cm,
             classes=instrument_data.INSTRUMENTS,
             normalize=True,
-            title='Normalized confusion matrix',
         )
         plt.show()
 
