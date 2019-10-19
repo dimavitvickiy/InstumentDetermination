@@ -30,7 +30,6 @@ def extract_features(filename, plot=False):
     features = [
         feature_mfcc,
         feature_spectral_centroid,
-        # feature_toneltz,
     ]
 
     feature = [np.absolute(arr).mean()
@@ -74,9 +73,6 @@ def extract_features_difference(filenames):
     # plt.colorbar()
     plt.tight_layout()
     plt.show()
-
-
-
 
 
 if __name__ == '__main__':
