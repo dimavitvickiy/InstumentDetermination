@@ -1,0 +1,30 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyDefaultArgumentInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <value>
+          <list size="14">
+            <item index="0" class="java.lang.String" itemvalue="tqdm" />
+            <item index="1" class="java.lang.String" itemvalue="pbr" />
+            <item index="2" class="java.lang.String" itemvalue="elasticsearch" />
+            <item index="3" class="java.lang.String" itemvalue="Pygments" />
+            <item index="4" class="java.lang.String" itemvalue="certifi" />
+            <item index="5" class="java.lang.String" itemvalue="more-itertools" />
+            <item index="6" class="java.lang.String" itemvalue="requests" />
+            <item index="7" class="java.lang.String" itemvalue="urllib3" />
+            <item index="8" class="java.lang.String" itemvalue="idna" />
+            <item index="9" class="java.lang.String" itemvalue="django-migration-linter" />
+            <item index="10" class="java.lang.String" itemvalue="dacite" />
+            <item index="11" class="java.lang.String" itemvalue="djangorestframework" />
+            <item index="12" class="java.lang.String" itemvalue="drf-yasg" />
+            <item index="13" class="java.lang.String" itemvalue="packaging" />
+          </list>
+        </value>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PySingleQuotedDocstringInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="PyTrailingSemicolonInspection" enabled="true" level="ERROR" enabled_by_default="true" />
+  </profile>
+</component>
