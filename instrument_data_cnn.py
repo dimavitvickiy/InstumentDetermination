@@ -1,8 +1,11 @@
 import pickle
 
+from extract_all_features_cnn import EXAMPLES
+
 
 def load_data():
-    with open('train_data_cnn.pickle', 'rb') as f:
+    file = f'train_data_cnn_{EXAMPLES}.pickle' if EXAMPLES else f'train_data_cnn.pickle'
+    with open(file, 'rb') as f:
         data = pickle.load(f)
     train = data["train"]
     test = data["test"]
