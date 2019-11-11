@@ -1,5 +1,6 @@
 import os
 import pickle
+from collections import OrderedDict
 
 from flask import Flask, render_template, request
 from wtforms import Form, fields
@@ -35,9 +36,10 @@ def classification():
 
             features = extract_features(os.path.join(UPLOAD_PATH, audiofile.filename))
             features_cnn = extract_features_cnn(os.path.join(UPLOAD_PATH, audiofile.filename))[:, :DURATION]
+            predict_x = OrderedDict()
+            for feature_col, feature in zip(range(instrument_data.FEATURES_NUMBER), features):
+                predict_x[str(feature_col)] = [feature]
 
-            predict_x = {str(feature_col): [feature] for feature_col, feature in
-                         zip(range(instrument_data.FEATURES_NUMBER), features)}
             predictions = classifier.predict(
                 input_fn=lambda: instrument_data.eval_input_fn(
                     predict_x,
@@ -47,9 +49,10 @@ def classification():
             features_cnn = features_cnn.reshape([1] + list(features_cnn.shape[:]) + [-1])
             predictions_cnn = classifier_cnn.predict(features_cnn)
 
-            prediction_mlp = next(predictions)
-            class_id = prediction_mlp['class_ids'][0]
-            probability = prediction_mlp['probabilities'][class_id]
+            for pred_dict in predictions:
+                class_id = pred_dict['class_ids'][0]
+                probability = pred_dict['probabilities'][class_id]
+
             class_id_cnn = np.where(predictions_cnn[0] == max(predictions_cnn[0]))[0][0]
             probability_cnn = predictions_cnn[0][class_id_cnn]
 
