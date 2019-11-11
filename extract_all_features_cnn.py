@@ -8,6 +8,7 @@ import os
 
 
 DURATION = 50
+EXAMPLES = 100
 
 if __name__ == '__main__':
     instruments = defaultdict(list)
@@ -17,7 +18,10 @@ if __name__ == '__main__':
         for instrument in dirnames:
             instrument_path = os.path.join(sample_path, f'{instrument}')
             for (dir_, dir_names, filenames_) in os.walk(instrument_path):
-                instruments[instrument].extend(filenames_)
+                if EXAMPLES:
+                    instruments[instrument].extend(filenames_[:EXAMPLES])
+                else:
+                    instruments[instrument].extend(filenames_)
                 break
         break
     record_number = sum([len(records) for records in instruments.values()])
@@ -47,7 +51,7 @@ if __name__ == '__main__':
             except EOFError:
                 continue
         index += 1
-    with open('train_data_cnn.pickle', 'wb') as f:
+    with open(f'train_data_cnn_{EXAMPLES}.pickle', 'wb') as f:
         pickle.dump({
             "train": (np.array(train_x), np.array(train_y)),
             "test": (np.array(test_x), np.array(test_y)),
