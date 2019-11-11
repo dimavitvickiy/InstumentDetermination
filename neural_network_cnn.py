@@ -43,8 +43,6 @@ def train_cnn():
 
 
 if __name__ == '__main__':
-    train_cnn()
-
     with open('model_cnn.pickle', 'rb') as f:
         classifier = pickle.load(f)
 

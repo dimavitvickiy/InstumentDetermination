@@ -8,7 +8,7 @@ import os
 
 
 DURATION = 50
-EXAMPLES = 100
+EXAMPLES = None
 
 if __name__ == '__main__':
     instruments = defaultdict(list)
