@@ -32,8 +32,7 @@ def train_cnn():
 
     train_x = train_x.reshape(list(train_x.shape[:]) + [-1])
     test_x = test_x.reshape(list(test_x.shape[:]) + [-1])
-    history = classifier.fit(train_x, train_y, epochs=10,
-                             validation_data=(test_x, test_y))
+    classifier.fit(train_x, train_y, epochs=10, validation_data=(test_x, test_y))
 
     test_loss, test_acc = classifier.evaluate(test_x, test_y, verbose=2)
 
@@ -43,12 +42,20 @@ def train_cnn():
         pickle.dump(classifier, f, pickle.HIGHEST_PROTOCOL)
 
 
+def evaluate(classifier, test_x, test_y):
+    test_loss, test_acc = classifier.evaluate(test_x, test_y, verbose=2)
+
+    print('\nTest set accuracy: {0:0.3f}\n'.format(test_acc))
+
+
 if __name__ == '__main__':
     with open('model_cnn.pickle', 'rb') as f:
         classifier = pickle.load(f)
 
     (train_x, train_y), (test_x, test_y) = instrument_data_cnn.load_data()
     test_x = test_x.reshape(list(test_x.shape[:]) + [-1])
+
+    evaluate(classifier, test_x, test_y)
 
     predictions = classifier.predict(test_x)
     prediction_list = []

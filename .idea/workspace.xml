@@ -1,30 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="158b079c-ab68-4907-a8ef-7c3d39b7c441" name="Default" comment="feat: need to investigate MLP bug">
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/eval/events.out.tfevents.1573496518.MacBook-Pro-(5)" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/events.out.tfevents.1573496240.MacBook-Pro-(5)" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/graph.pbtxt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/model.ckpt-0.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/model.ckpt-0.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/model.ckpt-0.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/model.ckpt-50000.data-00000-of-00001" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/model.ckpt-50000.index" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/server/temp/instruments_temp/model.ckpt-50000.meta" afterDir="false" />
+    <list default="true" id="158b079c-ab68-4907-a8ef-7c3d39b7c441" name="Default" comment="feat: ADD EVALUATE function">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/predict.py" beforeDir="false" afterPath="$PROJECT_DIR$/predict.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/server.py" beforeDir="false" afterPath="$PROJECT_DIR$/server/server.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/checkpoint" beforeDir="false" afterPath="$PROJECT_DIR$/server/temp/instruments_temp/checkpoint" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/eval/events.out.tfevents.1524426577.pc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/events.out.tfevents.1524426342.pc" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/graph.pbtxt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/model.ckpt-1.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/model.ckpt-1.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/model.ckpt-1.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/model.ckpt-50000.data-00000-of-00001" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/model.ckpt-50000.index" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/temp/instrument_8c_50k_500_train/model.ckpt-50000.meta" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/templates/main.html.jinja2" beforeDir="false" afterPath="$PROJECT_DIR$/server/templates/main.html.jinja2" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neural_network_cnn.py" beforeDir="false" afterPath="$PROJECT_DIR$/neural_network_cnn.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -78,33 +57,15 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/feature_extraction/feature_extractor_cnn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-13">
-              <caret column="37" selection-start-column="37" selection-end-column="37" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/extract_all_features_cnn.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-165">
-              <caret column="13" selection-start-column="13" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/predict.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="166">
+            <state relative-caret-position="240">
               <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/templates/main.html.jinja2">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="144">
@@ -123,10 +84,34 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/instrument_features.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+              <folding>
+                <element signature="e#0#36#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/neural_network_cnn.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="376">
+              <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
+              <folding>
+                <element signature="e#0#13#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/neural_network_mlp.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-31">
-              <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+            <state relative-caret-position="318">
+              <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
               <folding>
                 <element signature="e#0#38#0" expanded="true" />
               </folding>
@@ -188,12 +173,12 @@
         <option value="$PROJECT_DIR$/feature_extraction/feature_extractor_cnn.py" />
         <option value="$PROJECT_DIR$/instrument_data.py" />
         <option value="$PROJECT_DIR$/extract_all_features_cnn.py" />
-        <option value="$PROJECT_DIR$/neural_network_cnn.py" />
         <option value="$PROJECT_DIR$/feature_extraction/feature_extractor.py" />
-        <option value="$PROJECT_DIR$/neural_network_mlp.py" />
         <option value="$PROJECT_DIR$/server/server.py" />
         <option value="$PROJECT_DIR$/predict.py" />
         <option value="$PROJECT_DIR$/server/templates/main.html.jinja2" />
+        <option value="$PROJECT_DIR$/neural_network_mlp.py" />
+        <option value="$PROJECT_DIR$/neural_network_cnn.py" />
       </list>
     </option>
   </component>
@@ -213,22 +198,6 @@
             <path>
               <item name="InstumentDetermination" type="b2602c69:ProjectViewProjectNode" />
               <item name="InstumentDetermination" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InstumentDetermination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InstumentDetermination" type="462c0819:PsiDirectoryNode" />
-              <item name="feature_extraction" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InstumentDetermination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InstumentDetermination" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="InstumentDetermination" type="b2602c69:ProjectViewProjectNode" />
-              <item name="InstumentDetermination" type="462c0819:PsiDirectoryNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="InstumentDetermination" type="b2602c69:ProjectViewProjectNode" />
@@ -302,7 +271,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.server">
+  <component name="RunManager" selected="Python.neural_network_cnn">
     <configuration name="extract_all_features" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="InstumentDetermination" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -347,7 +316,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="instrument_data_cnn" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="instrument_features" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="InstumentDetermination" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -360,7 +329,7 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/instrument_data_cnn.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/instrument_features.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -441,15 +410,15 @@
       <item itemvalue="Python.extract_all_features" />
       <item itemvalue="Python.neural_network_cnn" />
       <item itemvalue="Python.extract_all_features_cnn" />
-      <item itemvalue="Python.instrument_data_cnn" />
+      <item itemvalue="Python.instrument_features" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.neural_network_tensorflow" />
-        <item itemvalue="Python.extract_all_features" />
         <item itemvalue="Python.neural_network_cnn" />
+        <item itemvalue="Python.neural_network_tensorflow" />
+        <item itemvalue="Python.instrument_features" />
+        <item itemvalue="Python.extract_all_features" />
         <item itemvalue="Python.extract_all_features_cnn" />
-        <item itemvalue="Python.instrument_data_cnn" />
       </list>
     </recent_temporary>
   </component>
@@ -469,7 +438,7 @@
       <workItem from="1571650825583" duration="25000" />
       <workItem from="1571742266870" duration="223000" />
       <workItem from="1573463374417" duration="12208000" />
-      <workItem from="1573488439153" duration="11519000" />
+      <workItem from="1573488439153" duration="12434000" />
     </task>
     <task id="LOCAL-00001" summary="update matplotlib to 3.1.1 version">
       <created>1571490949500</created>
@@ -590,29 +559,43 @@
       <option name="project" value="LOCAL" />
       <updated>1573498013377</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="fix: server fix for recognition old instruments">
+      <created>1573505445624</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1573505445624</updated>
+    </task>
+    <task id="LOCAL-00019" summary="feat: ADD EVALUATE function">
+      <created>1573506422331</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1573506422331</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="39190000" />
+    <option name="totallyTimeSpent" value="40105000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.19670959" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.19670959" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49786553" weight="0.31566265" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" sideWeight="0.49786553" visible="true" weight="0.31566265" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.50213444" side_tool="true" weight="0.3277487" />
       <window_info anchor="bottom" id="Python Console" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49786553" visible="true" weight="0.30361447" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49786553" weight="0.30361447" />
       <window_info anchor="bottom" id="Docker" order="10" weight="0.32891566" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -640,7 +623,9 @@
     <MESSAGE value="update images" />
     <MESSAGE value="feat: updated CNN. Changed feature extractor to use only 1 second of music sample. ordered instruments" />
     <MESSAGE value="feat: need to investigate MLP bug" />
-    <option name="LAST_COMMIT_MESSAGE" value="feat: need to investigate MLP bug" />
+    <MESSAGE value="fix: server fix for recognition old instruments" />
+    <MESSAGE value="feat: ADD EVALUATE function" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: ADD EVALUATE function" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -656,12 +641,13 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/InstumentDetermination$extract_all_features_cnn.coverage" NAME="extract_all_features_cnn Coverage Results" MODIFIED="1573493482519" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/InstumentDetermination$extract_all_features.coverage" NAME="extract_all_features Coverage Results" MODIFIED="1573495904255" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/InstumentDetermination$neural_network_cnn.coverage" NAME="neural_network_cnn Coverage Results" MODIFIED="1573493750873" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/InstumentDetermination$neural_network_cnn.coverage" NAME="neural_network_cnn Coverage Results" MODIFIED="1573506611123" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/InstumentDetermination$instrument_data_cnn.coverage" NAME="instrument_data_cnn Coverage Results" MODIFIED="1573470650401" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/InstumentDetermination$server.coverage" NAME="server Coverage Results" MODIFIED="1573502405963" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/server" />
     <SUITE FILE_PATH="coverage/InstumentDetermination$insrument_features.coverage" NAME="insrument_features Coverage Results" MODIFIED="1571505505673" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/InstumentDetermination$instrument_features_tsne.coverage" NAME="instrument_features_tsne Coverage Results" MODIFIED="1571505525649" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/InstumentDetermination$neural_network_tensorflow.coverage" NAME="neural_network_tensorflow Coverage Results" MODIFIED="1573496238136" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/InstumentDetermination$neural_network_tensorflow.coverage" NAME="neural_network_tensorflow Coverage Results" MODIFIED="1573505866336" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/InstumentDetermination$instrument_features.coverage" NAME="instrument_features Coverage Results" MODIFIED="1573505500859" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/InstumentDetermination$instrument_data.coverage" NAME="instrument_data Coverage Results" MODIFIED="1571505471590" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="debuggerHistoryManager">
@@ -861,16 +847,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/instrument_features.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="25" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding>
-            <element signature="e#0#36#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/feature_extraction.png">
       <provider selected="true" editor-type-id="images" />
     </entry>
@@ -925,16 +901,6 @@
           <caret line="25" selection-start-line="25" selection-end-line="25" />
           <folding>
             <element signature="e#16#32#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/neural_network_cnn.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="57" selection-start-line="57" selection-end-line="57" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -1032,27 +998,47 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/server/templates/main.html.jinja2">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/predict.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/instrument_features.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="22" column="14" lean-forward="true" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
+          <folding>
+            <element signature="e#0#36#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/neural_network_mlp.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-31">
-          <caret line="53" column="5" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+        <state relative-caret-position="318">
+          <caret line="90" lean-forward="true" selection-start-line="90" selection-end-line="90" />
           <folding>
             <element signature="e#0#38#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/predict.py">
+    <entry file="file://$PROJECT_DIR$/neural_network_cnn.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="166">
-          <caret line="20" column="45" selection-start-line="20" selection-start-column="45" selection-end-line="20" selection-end-column="45" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/server/templates/main.html.jinja2">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="9" column="35" selection-start-line="9" selection-start-column="35" selection-end-line="9" selection-end-column="35" />
+        <state relative-caret-position="376">
+          <caret line="57" column="18" selection-start-line="57" selection-start-column="18" selection-end-line="57" selection-end-column="18" />
+          <folding>
+            <element signature="e#0#13#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
