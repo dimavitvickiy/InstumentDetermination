@@ -7,7 +7,7 @@ import numpy as np
 
 
 def extract_features(filename, plot=False):
-    y, sr = librosa.load(filename, sr=44100, duration=1)
+    y, sr = librosa.load(filename, sr=44100, duration=0.5)
 
     feature_mfcc = librosa.feature.mfcc(y, sr)
     feature_spectral_centroid = librosa.feature.spectral_centroid(y, sr)

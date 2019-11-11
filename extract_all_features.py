@@ -4,6 +4,7 @@ from feature_extraction.feature_extractor import extract_features
 import csv
 import os
 
+from instrument_data import INSTRUMENTS
 
 if __name__ == '__main__':
     instruments = defaultdict(list)
@@ -20,7 +21,9 @@ if __name__ == '__main__':
     counter = 0
     index = 0
     instrument_dict = {}
-    for instrument, records in instruments.items():
+    for name in INSTRUMENTS:
+        records = instruments[name]
+        instrument = name
         instrument_path = os.path.join(sample_path, f'{instrument}')
         for record in records:
             try:

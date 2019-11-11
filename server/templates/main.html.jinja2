@@ -22,7 +22,10 @@
                 {% if instrument %}
                     <span>Analysis results:</span><br />
                     <p style="font-weight: bold; padding-top: 0.7em">
-                        {{ instrument["name"] }}, {{ "%4.2f" % instrument["probability"] }} %
+                        MLP: {{ instrument["name"] }}, {{ "%4.2f" % instrument["probability"] }} %
+                    </p>
+                    <p style="font-weight: bold; padding-top: 0.7em">
+                        CNN: {{ instrument["name_cnn"] }}, {{ "%4.2f" % instrument["probability_cnn"] }} %
                     </p>
                 {% endif %}
             </div>

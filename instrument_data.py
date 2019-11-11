@@ -6,7 +6,7 @@ FEATURES_NUMBER = 21
 
 CSV_COLUMN_NAMES = [str(i) for i in range(FEATURES_NUMBER + 1)]
 INSTRUMENTS = [
-    'basson',
+    'bassoon',
     'violin',
     'double bass',
     'trombone',

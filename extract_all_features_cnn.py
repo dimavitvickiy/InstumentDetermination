@@ -6,8 +6,9 @@ import numpy as np
 from feature_extraction.feature_extractor_cnn import extract_features
 import os
 
+from instrument_data import INSTRUMENTS
 
-DURATION = 50
+DURATION = 44
 EXAMPLES = None
 
 if __name__ == '__main__':
@@ -31,10 +32,15 @@ if __name__ == '__main__':
     train_y = []
     test_x = []
     test_y = []
-    for instrument, records in instruments.items():
+    for name in INSTRUMENTS:
+        records = instruments[name]
+        instrument = name
         instrument_path = os.path.join(sample_path, f'{instrument}')
         for record in records:
             try:
+                counter += 1
+                print(f'Read {counter}/{record_number}')
+
                 record_path = os.path.join(instrument_path, f'{record}')
                 features = extract_features(record_path)
                 if features.shape[1] < DURATION:
@@ -46,12 +52,11 @@ if __name__ == '__main__':
                 else:
                     test_x.append(features[:, :DURATION])
                     test_y.append(index)
-                counter += 1
-                print(f'Read {counter}/{record_number}')
             except EOFError:
                 continue
         index += 1
-    with open(f'train_data_cnn_{EXAMPLES}.pickle', 'wb') as f:
+    filename = f'train_data_cnn_{EXAMPLES}.pickle' if EXAMPLES else f'train_data_cnn.pickle'
+    with open(filename, 'wb') as f:
         pickle.dump({
             "train": (np.array(train_x), np.array(train_y)),
             "test": (np.array(test_x), np.array(test_y)),

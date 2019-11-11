@@ -5,6 +5,6 @@ import librosa.display
 
 
 def extract_features(filename):
-    y, sr = librosa.load(filename, sr=44100, duration=1)
+    y, sr = librosa.load(filename, sr=44100, duration=0.5)
 
     return librosa.feature.mfcc(y, sr)
