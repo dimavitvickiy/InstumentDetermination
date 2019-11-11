@@ -44,7 +44,7 @@ def classification():
                 input_fn=lambda: instrument_data.eval_input_fn(
                     predict_x,
                     labels=None,
-                    batch_size=50))
+                    batch_size=10))
 
             features_cnn = features_cnn.reshape([1] + list(features_cnn.shape[:]) + [-1])
             predictions_cnn = classifier_cnn.predict(features_cnn)

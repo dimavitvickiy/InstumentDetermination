@@ -15,10 +15,10 @@ parser.add_argument('--filename', type=str, help='file for prediction')
 if __name__ == '__main__':
     args = parser.parse_args()
 
-    with open('model.pickle', 'rb') as f:
+    with open('model_mlp.pickle', 'rb') as f:
         classifier = pickle.load(f)
 
-    features = extract_features(args.filename, plot=True)
+    features = extract_features(args.filename)
 
     predict_x = {str(feature_col): [feature] for feature_col, feature in
                  zip(range(instrument_data.FEATURES_NUMBER), features)}
@@ -36,4 +36,3 @@ if __name__ == '__main__':
 
         print(template.format(instrument_data.INSTRUMENTS[class_id],
                               100 * probability))
-    plt.show()
