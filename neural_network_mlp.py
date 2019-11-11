@@ -46,7 +46,7 @@ def main(argv):
 
     print('\nTest set accuracy: {0:0.3f}\n'.format(accuracy))
 
-    with open('model.pickle', 'wb') as f:
+    with open('model_mlp.pickle', 'wb') as f:
         pickle.dump(classifier, f, pickle.HIGHEST_PROTOCOL)
 
     predictions = classifier.predict(

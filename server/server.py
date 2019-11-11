@@ -27,7 +27,7 @@ def classification():
             audiofile.save(
                 os.path.join(UPLOAD_PATH, request.files[form.audio_file.name].filename),
             )
-            with open('model.pickle', 'rb') as f:
+            with open('model_mlp.pickle', 'rb') as f:
                 classifier = pickle.load(f)
 
             with open('model_cnn.pickle', 'rb') as f:

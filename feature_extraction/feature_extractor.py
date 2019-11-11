@@ -11,7 +11,6 @@ def extract_features(filename, plot=False):
 
     feature_mfcc = librosa.feature.mfcc(y, sr)
     feature_spectral_centroid = librosa.feature.spectral_centroid(y, sr)
-    # feature_toneltz = librosa.feature.tonnetz(y, sr)
     if plot:
         plt.figure(figsize=(10, 6))
         plt.subplot(2, 2, 1)
