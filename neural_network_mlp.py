@@ -41,10 +41,7 @@ def main(argv):
         input_fn=lambda:instrument_data.train_input_fn(train_x, train_y, args.batch_size),
         steps=args.train_steps)
 
-    accuracy = classifier.evaluate(
-        input_fn=lambda:instrument_data.eval_input_fn(test_x, test_y, args.batch_size))['accuracy']
-
-    print('\nTest set accuracy: {0:0.3f}\n'.format(accuracy))
+    evaluate(classifier)
 
     with open('model_mlp.pickle', 'wb') as f:
         pickle.dump(classifier, f, pickle.HIGHEST_PROTOCOL)
@@ -73,6 +70,19 @@ def main(argv):
             normalize=True,
         )
         plt.show()
+
+
+def evaluate(classifier=None):
+    if classifier is None:
+        with open('model_mlp.pickle', 'rb') as f:
+            classifier = pickle.load(f)
+
+    (train_x, train_y), (test_x, test_y) = instrument_data.load_data()
+
+    accuracy = classifier.evaluate(
+        input_fn=lambda: instrument_data.eval_input_fn(test_x, test_y, 250))['accuracy']
+
+    print('\nTest set accuracy: {0:0.3f}\n'.format(accuracy))
 
 
 if __name__ == '__main__':
