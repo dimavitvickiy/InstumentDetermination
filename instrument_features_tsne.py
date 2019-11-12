@@ -9,7 +9,7 @@ import instrument_data
 X = train_x
 Y = train_y
 
-tsne = TSNE()
+tsne = TSNE(perplexity=10, learning_rate=200, n_iter=1000)
 Z = tsne.fit_transform(X)
 colors = [
     'red',
