@@ -6,6 +6,9 @@ import os
 
 from instrument_data import INSTRUMENTS
 
+EXAMPLES = None
+START = 150
+
 if __name__ == '__main__':
     instruments = defaultdict(list)
     path = os.path.dirname(os.path.realpath(__file__))
@@ -30,11 +33,13 @@ if __name__ == '__main__':
                 record_path = os.path.join(instrument_path, f'{record}')
                 features = extract_features(record_path)
                 if counter % 5 == 0:
-                    with open('test.csv', 'a', newline='') as csvfile:
+                    filename = f'test_{EXAMPLES}.csv' if EXAMPLES else 'test.csv'
+                    with open(filename, 'a', newline='') as csvfile:
                         writer = csv.writer(csvfile)
                         writer.writerow(features + [index])
                 else:
-                    with open('train.csv', 'a', newline='') as csvfile:
+                    filename = f'train_{EXAMPLES}.csv' if EXAMPLES else 'train.csv'
+                    with open(filename, 'a', newline='') as csvfile:
                         writer = csv.writer(csvfile)
                         writer.writerow(features + [index])
                 counter += 1

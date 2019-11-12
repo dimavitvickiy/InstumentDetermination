@@ -28,11 +28,15 @@ INSTRUMENTS_UKR = [
 
 
 def load_data(y_name=str(FEATURES_NUMBER)):
-    train = pd.read_csv('train.csv', names=CSV_COLUMN_NAMES, header=None)
+    from extract_all_features import EXAMPLES
+
+    filename = f'train_{EXAMPLES}.csv' if EXAMPLES else 'train.csv'
+    train = pd.read_csv(filename, names=CSV_COLUMN_NAMES, header=None)
     train = train.sample(frac=1)
     train_x, train_y = train, train.pop(y_name)
 
-    test = pd.read_csv('test.csv', names=CSV_COLUMN_NAMES, header=None)
+    filename = f'test_{EXAMPLES}.csv' if EXAMPLES else 'test.csv'
+    test = pd.read_csv(filename, names=CSV_COLUMN_NAMES, header=None)
     test = test.sample(frac=1)
     test_x, test_y = test, test.pop(y_name)
 
