@@ -6,7 +6,7 @@ import os
 
 from instrument_data import INSTRUMENTS
 
-EXAMPLES = None
+EXAMPLES = 100
 START = 150
 
 if __name__ == '__main__':

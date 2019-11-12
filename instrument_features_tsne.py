@@ -41,17 +41,24 @@ def get_tsne(features, perp, iter):
 X = train_x
 Y = train_y
 
-perplexities = [2, 5, 30, 50, 100]
-iterations = [250, 500, 1000]
+perplexities = [2, 5, 30]
+iterations = [250, 500]
 
-(fig, subplots) = plt.subplots(3, 5, figsize=(10, 6))
+(fig, subplots) = plt.subplots(
+    len(iterations),
+    len(perplexities),
+    figsize=(len(perplexities) * 3,
+             len(iterations) * 3))
 
 for i, iteration in enumerate(iterations):
     for j, perplexity in enumerate(perplexities):
         ax = subplots[i][j]
         Z = get_tsne(X, perplexity, iteration)
         print(f"Build T-SNE for p={perplexity}, n_i={iteration}")
+        ax.set_title("Perplexity=%d" % perplexity)
         for k, color in enumerate(colors):
-            ax.scatter(Z[Y == k, 0], Z[Y == k, 1], color=color)
+            ax.scatter(Z[Y == k, 0], Z[Y == k, 1], color=color, label=instrument_data.INSTRUMENTS[k])
 
+handles, labels = ax.get_legend_handles_labels()
+plt.legend(handles, labels, loc='lower center', bbox_to_anchor=(1, 0.25))
 plt.show()
