@@ -12,9 +12,7 @@ from confusion_matrix_plot import plot_confusion_matrix
 from extract_all_features_cnn import DURATION
 
 
-def train_cnn():
-    (train_x, train_y), (test_x, test_y) = instrument_data_cnn.load_data()
-
+def build_model():
     classifier = models.Sequential()
     classifier.add(layers.Conv2D(20, (3, 3), activation='relu', input_shape=(20, DURATION, 1)))
     classifier.add(layers.MaxPooling2D((2, 2)))
@@ -25,6 +23,13 @@ def train_cnn():
     classifier.add(layers.Flatten())
     classifier.add(layers.Dense(64, activation='relu'))
     classifier.add(layers.Dense(8, activation='softmax'))
+    return classifier
+
+
+def train_cnn():
+    (train_x, train_y), (test_x, test_y) = instrument_data_cnn.load_data()
+
+    classifier = build_model()
 
     classifier.compile(optimizer='adam',
                        loss='sparse_categorical_crossentropy',

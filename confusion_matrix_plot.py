@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 def plot_confusion_matrix(cm, classes,
                           normalize=False,
                           title=None,
-                          cmap=plt.cm.Blues):
+                          cmap=plt.cm.Reds):
     """
     This function prints and plots the confusion matrix.
     Normalization can be applied by setting `normalize=True`.
